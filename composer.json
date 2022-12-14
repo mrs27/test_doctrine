@@ -1,0 +1,20 @@
+{
+    "name": "marcelo/doctrine",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Marcelo\\Doctrine\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelo",
+            "email": "marcelo@mactus.com.br"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.13",
+        "doctrine/annotations": "^1.13",
+        "symfony/cache": "^6.1"
+    }
+}
