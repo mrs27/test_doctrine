@@ -41,15 +41,24 @@ $usuario->setAtivo('S');
 //$query = $qb->getQuery();
 //var_dump($query->getResult());
 
-$usuarioModel = new UsuarioModel($entityManager);
-$qb = $usuarioModel->createQueryBuilder();
+//$usuarioModel = new UsuarioModel($entityManager);
+// $qb = $usuarioModel->createQueryBuilder();
 
-$qb->select('u')
-   ->from('Usuario', 'u')
-   //->where('u.id = ?1')
-   ->orderBy('u.id', 'ASC');
-$query = $qb->getQuery();
-var_dump($query->getResult());
+// $qb->select('u')
+//    ->from('Usuario', 'u')
+//    //->where('u.id = ?1')
+//    ->orderBy('u.id', 'ASC');
+// $query = $qb->getQuery();
+// var_dump($query->getResult());
+
+
+$result = $entityManager->getRepository("Usuario")->createQueryBuilder('o')
+   ->where('o.OrderEmail = :email')
+   ->andWhere('o.Product LIKE :product')
+   ->setParameter('email', 'some@mail.com')
+   ->setParameter('product', 'My Products%')
+   ->getQuery()
+   ->getResult();
 
 //$users = $entityManager->find('Marcelo\Doctrine\Entities\Usuario',2);
 //var_dump($users);
