@@ -23,42 +23,56 @@ use Marcelo\Doctrine\Model\UsuarioModel;
  $entityManager = getEntityManager();
 
 
+//TESTE OK
+// $usuario = new Usuario();
+// $usuario->setId(30);
+// $usuario->setNome('Teste 1e334');
+// $usuario->setTelefone('4499858787');
+// $usuario->setEmail('teste2@example.com');
+// $usuario->setAtivo('S');
+// $entityManager->persist($usuario);
+// $entityManager->flush();
 
-$usuario = new Usuario();
-$usuario->setId(2);
-$usuario->setNome('Teste 1e334');
-$usuario->setTelefone('4499858787');
-$usuario->setEmail('teste1@example.com');
-$usuario->setAtivo('S');
-//$entityManager->merge($usuario);
-//$entityManager->flush();
+// TESTE OK
+// $users = $entityManager->find('Marcelo\Doctrine\Entities\Usuario',30);
+// var_dump($users);
+// $users->setNome('edit 30');
+// $entityManager->persist($users);
+// $entityManager->flush();
 
+// TESTE OK 
+// $users = $entityManager->find('Marcelo\Doctrine\Entities\Usuario',32);
+// $entityManager->remove($users);
+// $entityManager->flush();
 
-//$qb = $entityManager->createQueryBuilder();
-//$qb->select('u')->from('Marcelo\Doctrine\Entities\Usuario', 'u')
-//->where('u.nome like')
-//->orderBy('u.nome', 'asc')->getQuery();
-//$query = $qb->getQuery();
-//var_dump($query->getResult());
-
-//$usuarioModel = new UsuarioModel($entityManager);
-// $qb = $usuarioModel->createQueryBuilder();
-
-// $qb->select('u')
-//    ->from('Usuario', 'u')
-//    //->where('u.id = ?1')
-//    ->orderBy('u.id', 'ASC');
+// TESTE OK
+// $qb = $entityManager->createQueryBuilder();
+// $qb->select('u')->from('Marcelo\Doctrine\Entities\Usuario', 'u')
+// ->where('u.nome like :nome')
+// ->setParameter('nome','%marti%')
+// ->orderBy('u.nome', 'asc')->getQuery();
 // $query = $qb->getQuery();
 // var_dump($query->getResult());
 
+// $usuarioModel = new UsuarioModel($entityManager);
+//  $qb = $usuarioModel->createQueryBuilder();
+//  $qb->select('u')
+//     ->from('Usuario', 'u')
+//     //->where('u.id = ?1')
+//     ->orderBy('u.id', 'ASC');
+//  $query = $qb->getQuery();
+//  var_dump($query->getResult());
 
-$result = $entityManager->getRepository("Usuario")->createQueryBuilder('o')
-   ->where('o.OrderEmail = :email')
-   ->andWhere('o.Product LIKE :product')
-   ->setParameter('email', 'some@mail.com')
-   ->setParameter('product', 'My Products%')
+
+/*  $qb = $entityManager->getRepository("Marcelo\Doctrine\Entities\Usuario")->createQueryBuilder('o');
+ $result = $qb->where('o.email = :email')
+   //->andWhere('o.email LIKE :product')
+   ->setParameter('email', '%outlook.edu')
+   //->setParameter('product', 'My Products%')
    ->getQuery()
-   ->getResult();
+   ->getResult(); 
+var_dump($result);  */  
 
-//$users = $entityManager->find('Marcelo\Doctrine\Entities\Usuario',2);
-//var_dump($users);
+// TESTE OK
+// $users = $entityManager->find('Marcelo\Doctrine\Entities\Usuario',2);
+// var_dump($users);
